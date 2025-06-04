@@ -17,3 +17,7 @@ def salvar_arquivo(pressao, volume, temperatura):
 
 teste = salvar_arquivo(pressao, volume, temperatura)
 print(teste)
+
+arquivo_lido = pd.read_csv('dados_termodinamicos.csv')
+arquivo_lido.to_excel('dados_termodinamicos.xlsx', index=None, header=True)
+                 
