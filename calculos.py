@@ -12,35 +12,41 @@ def calculadora(tupla):
         PB = pontoB[0]
         VB = pontoB[1]
         TB = pontoB[2]
-#Verifica o tipo de transformação e calcula delta U, W e Q para cada uma delas.
+#Verifica o tipo de transformação e calcula delta U, delta S, W e Q para cada uma delas.
 #Se nenhum input for igual, assume que é adiabática.
         UAB = (3/2) * ((PB * VB) - (PA * VA))
 #Isotérmica:
         if TA == TB:
         #if PA * VA == PB * VB:(problemas com operações de float)
             WAB = PA * VA * log(VB / VA)
+            SAB = ((PA * VA)/TA) * log(VB/VA)
 #Isobárica:
         elif PA == PB:
             WAB = PA * (VB - VA)
+            SAB = (5/2) * ((PA * VA)/TA) * log(TB/TA)
 #Isocórica:
         elif VA == VB:
-            WAB = 0 
+            WAB = 0
+            SAB = (3/2) * ((PA * VA)/TA) * log(TB/TA) 
 #Adiabática:
         else:
         #elif PA * (VA**(5/3)) == PB * (VB**(5/3)):(problemas com operações de float)
             WAB = -UAB
+            SAB = 0
         QAB = WAB + UAB
-        transformações.append((QAB, WAB, UAB))
+        transformações.append((QAB, WAB, UAB, SAB))
 #Lista Q, W e delta U de cada transformação em ordem, na forma de tuplas.
-#Agora, calcula Q, W e delta U totais e adiciona por último na lista. Depois a transforma em tupla.
+#Agora, calcula Q, W, delta U e delta S totais e adiciona por último na lista. Depois transforma em tupla.
     Q = 0
     W = 0
     U = 0
+    S = 0
     for t in range(len(transformações)):
         Q += transformações[t][0]
         W += transformações[t][1]
         U += transformações[t][2]
-    total = (Q, W, U)
+        S += transformações[t][3]
+    total = (Q, W, U, S)
     transformações.append(total)
     transformações = tuple(transformações)
     return transformações
