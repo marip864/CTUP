@@ -1,2 +1,2 @@
 # CTUP
-calculadora termodinamica usando python
+Calculadora Termodinâmica usando Python
