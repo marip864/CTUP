@@ -1,4 +1,5 @@
 teste = ((10, 2, 5),(20, 1, 5), (20, 2, 10), (40, 1, 10), (10, 2, 5))
+#Recebe os dados do input como uma tupla de tuplas (P, V, T)
 from math import log
 def calculadora(tupla):
     transformações = []
@@ -11,19 +12,27 @@ def calculadora(tupla):
         PB = pontoB[0]
         VB = pontoB[1]
         TB = pontoB[2]
+#Verifica o tipo de transformação e calcula delta U, W e Q para cada uma delas.
+#Se nenhum input for igual, assume que é adiabática.
         UAB = (3/2) * ((PB * VB) - (PA * VA))
-        #if TA == TB:
-        if PA * VA == PB * VB:
+#Isotérmica:
+        if TA == TB:
+        #if PA * VA == PB * VB:(problemas com operações de float)
             WAB = PA * VA * log(VB / VA)
+#Isobárica:
         elif PA == PB:
-            WAB = PA * (VB - VA) 
+            WAB = PA * (VB - VA)
+#Isocórica:
         elif VA == VB:
             WAB = 0 
-        #else:
-        elif PA * (VA**(5/3)) == PB * (VB**(5/3)):
+#Adiabática:
+        else:
+        #elif PA * (VA**(5/3)) == PB * (VB**(5/3)):(problemas com operações de float)
             WAB = -UAB
         QAB = WAB + UAB
         transformações.append((QAB, WAB, UAB))
+#Lista Q, W e delta U de cada transformação em ordem, na forma de tuplas.
+#Agora, calcula Q, W e delta U totais e adiciona por último na lista. Depois a transforma em tupla.
     Q = 0
     W = 0
     U = 0
@@ -35,4 +44,4 @@ def calculadora(tupla):
     transformações.append(total)
     transformações = tuple(transformações)
     return transformações
-#print(calculadora(teste))
+print(calculadora(teste))
