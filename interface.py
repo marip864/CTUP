@@ -1,20 +1,32 @@
 import tkinter as tk
 
-# Criando a janela principal
+# Função para capturar o valor digitado
+def capturar_valor():
+    valor = entrada.get()  # Obtém o texto digitado na Entry
+    label_resultado.config(text=f"Você digitou: {valor}")
+    return valor
+
+# Configuração da janela principal
 janela = tk.Tk()
-janela.title("Minha Interface Gráfica")
-janela.geometry("300x200")
+janela.title("Exemplo de Entry no Tkinter")
 
-# Adicionando um rótulo
-rotulo = tk.Label(janela, text="Bem-vindo à interface gráfica!", font=("Arial", 12))
-rotulo.pack(pady=10)
+# Label de instrução
+label_instrucao = tk.Label(janela, text="Digite a temperatura:")
+label_instrucao.pack(pady=5)
 
-# Adicionando um botão
-def clique_botao():
-    rotulo.config(text="Você clicou no botão!")
+# Caixa de texto (Entry)
+entrada = tk.Entry(janela, width=30)
+entrada.pack(pady=5)
 
-botao = tk.Button(janela, text="Clique aqui", command=clique_botao)
-botao.pack(pady=10)
+# Botão para capturar o valor
+botao = tk.Button(janela, text="Enviar", command=capturar_valor)
+botao.pack(pady=5)
 
-# Executando o loop principal
+# Label para exibir o resultado
+label_resultado = tk.Label(janela, text="")
+label_resultado.pack(pady=5)
+
+# Inicia o loop da interface
 janela.mainloop()
+
+temperatura = capturar_valor()
