@@ -23,8 +23,8 @@ def abrirJanela(p, t):
     ax = fig.add_subplot(111)
     ax.plot([1, 2, 3], [p, t, p + t], marker='o')
     ax.set_title("Gráfico de Exemplo")
-    ax.set_xlabel("Eixo X")
-    ax.set_ylabel("Eixo Y")
+    ax.set_xlabel("Temperatura")
+    ax.set_ylabel("Pressão")
 
     canvas = FigureCanvasTkAgg(fig, master=novaJanela)
     canvas.draw()
