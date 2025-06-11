@@ -2,10 +2,19 @@ import tkinter as tk
 from PIL import Image, ImageTk  # Necessário para imagens em formatos como PNG ou JPG
 
 # Função para capturar o valor digitado
-def capturar_valor():
-    valor = entrada.get()  # Obtém o texto digitado na Entry
-    label_resultado.config(text=f"Você digitou: {valor}")
-    return valor
+
+def capturar_dados():
+    pressao = entrada_pressao.get()
+    temperatura = entrada_temperatura.get()
+    # Aqui você pode converter para float, se necessário
+    try:
+        pressao = float(pressao)
+        temperatura = float(temperatura)
+        print(f"Pressão: {pressao} atm")
+        print(f"Temperatura: {temperatura} K")
+    except ValueError:
+        print("Por favor, insira valores numéricos válidos.")
+
 
 # Configuração da janela principal
 janela = tk.Tk()
@@ -20,12 +29,20 @@ label_imagem = tk.Label(janela, image=imagem_tk)
 label_imagem.pack()
 
 # Label de instrução
-label_instrucao = tk.Label(janela, text="Digite a temperatura (em K):")
-label_instrucao.pack(pady=5)
+label_pressao = tk.Label(janela, text="Digite a pressão (em atm):")
+label_pressao.pack(pady=5)
 
 # Caixa de texto (Entry)
-entrada = tk.Entry(janela, width=30)
-entrada.pack(pady=5)
+entrada_pressao = tk.Entry(janela, width=30)
+entrada_pressao.pack(pady=5)
+
+# Label de instrução
+label_temperatura = tk.Label(janela, text="Digite a temperatura (em K):")
+label_temperatura.pack(pady=5)
+
+# Caixa de texto (Entry)
+entrada_temperatura = tk.Entry(janela, width=30)
+entrada_temperatura.pack(pady=5)
 
 # Botão para capturar o valor
 botao = tk.Button(
@@ -38,7 +55,7 @@ botao = tk.Button(
     activeforeground="yellow",  # Cor do texto ao clicar
     relief="raised",            # Estilo da borda (raised, sunken, flat, etc.)
     bd=5,                       # Largura da borda
-    command=capturar_valor
+    command=capturar_dados
 )
 botao.pack(pady=5)
 
@@ -48,5 +65,3 @@ label_resultado.pack(pady=5)
 
 # Inicia o loop da interface
 janela.mainloop()
-
-temperatura = capturar_valor()
