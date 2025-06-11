@@ -29,7 +29,7 @@ janelaPrincipal.title("Seja bem-vindo ao CTUP!")
 janelaPrincipal.geometry("400x400")
 
 # Carrega a imagem (usando PIL para maior compatibilidade)
-imagem = Image.open("images/Logo_CTUP-removebg-preview.png")  # Substitua pelo caminho da sua imagem
+imagem = Image.open("images/Logo_CTUP-removebg-preview.png")
 imagem_tk = ImageTk.PhotoImage(imagem)
 
 # Adiciona a imagem em um Label
