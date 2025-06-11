@@ -28,7 +28,7 @@
 
 <h1>Professores Colaboradores</a></h1>
 <ul>
-  <li>Prof. Dr. Daniel Roberto Cassar</li>
-  <li>Prof. Dr. James Moraes de Almeida</li>
-  <li>Prof. Dr. Leandro Nascimento Lemos</li>
+  <li>Prof. Dr. Daniel Roberto Cassar (https://github.com/drcassar)</li>
+  <li>Prof. Dr. James Moraes de Almeida (https://github.com/jamesmalmeida)</li>
+  <li>Prof. Dr. Leandro Nascimento Lemos (https://github.com/llemos)</li>
 </ul>
