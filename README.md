@@ -10,5 +10,8 @@
 
 <img loading="lazy" src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>  ![Made withPython](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
 
-Calculadora Termodinâmica usando Python.
-  A calculadora admite apenas transformações isotérmicas, isométricas, isobáricas ou adiabáticas. As limitações de operações com float no Python podem ocasionar pequenos erros. Para evitar isso, o programa assume que qualquer transformação em que P, V e T mudam é adiabática reversível.
+<h1 align='center'>
+  Descrição do projeto</a>
+</h1>
+
+<p align='justify'> A calculadora admite apenas transformações isotérmicas, isométricas, isobáricas ou adiabáticas. As limitações de operações com float no Python podem ocasionar pequenos erros. Para evitar isso, o programa assume que qualquer transformação em que P, V e T mudam é adiabática reversível. </p>
