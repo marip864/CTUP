@@ -20,10 +20,10 @@
 
 <h1>Desenvolvedores do Projeto</a></h1>
 <ul>
-  <li>Caio Ávila Paulo <img src="https://img.icons8.com/?size=100&id=zuHqpgzrusU5&format=png&color=000000"> https://github.com/Caio1833</li>
-  <li>Lázaro Santana Ribeiro <img src="https://img.icons8.com/?size=100&id=zuHqpgzrusU5&format=png&color=000000"> https://github.com/lazaroribeiro</li>
-  <li>Mariana Melo Pereira <img src="https://img.icons8.com/?size=100&id=zuHqpgzrusU5&format=png&color=000000"> https://github.com/marip864</li>
-  <li>Samarah Luiza de Medeiros Ramos <img src="https://img.icons8.com/?size=100&id=zuHqpgzrusU5&format=png&color=000000"> https://github.com/SamarahRamos</li>
+  <li>Caio Ávila Paulo (https://github.com/Caio1833)</li>
+  <li>Lázaro Santana Ribeiro (https://github.com/lazaroribeiro)</li>
+  <li>Mariana Melo Pereira (https://github.com/marip864)</li>
+  <li>Samarah Luiza de Medeiros Ramos (https://github.com/SamarahRamos)</li>
 </ul>
 
 <h1>Professores Colaboradores</a></h1>
