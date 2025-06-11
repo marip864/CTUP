@@ -13,15 +13,13 @@ def plotar_graficos(resultados):
             plt.xlabel('Volume (m³)')
             plt.ylabel('Pressão (Pa)')
             plt.title('Gráfico Isobárico')
-            plt.grid()
-            plt.show()
+
         elif resultados[0][1] == resultados[1][1]:  # Isocórica
             plt.plot(V, P, 'b-')  # Linha azul conectando os pontos
             plt.xlabel('Volume (m³)')
             plt.ylabel('Pressão (Pa)')
             plt.title('Gráfico Isocórico')
-            plt.grid()
-            plt.show()
+
         elif resultados[0][2] == resultados[1][2]:  # Isotérmica
             T = resultados[0][2]  # Temperatura constante
             
@@ -42,56 +40,40 @@ def plotar_graficos(resultados):
             plt.ylabel('Pressão (Pa)')
             plt.title('Gráfico Isotérmico')
             plt.legend()
-            plt.grid()
-            plt.show()
+
 
         else:
             plt.plot(V, P, 'b-')  # Linha azul conectando os pontos
             plt.xlabel('Volume (m³)')
             plt.ylabel('Pressão (Pa)')
             plt.title('Gráfico Adiabática')
-            plt.grid()
-            plt.show()
 
-    if len(resultados) == 3:
-            P = [p[0] for p in resultados]  # Pressões
-            V = [p[1] for p in resultados]  # Volumes
-            T = [p[2] for p in resultados]  # Temperaturas
-    
-            plt.figure(figsize=(10, 6))
+
+    elif len(resultados) == 3:
+        if all(t == T[0] for t in T):  # Isotérmica
+            v_curve = np.linspace(min(V), max(V), 100)
+            p_curve = (8.314 * T[0]) / v_curve
+            plt.plot(v_curve, p_curve, 'b-', label=f'Isotérmica (T={T[0]} K)')
             
-            # 1. Plot dos PONTOS EXPERIMENTAIS (sempre mostra)
-            plt.plot(V, P, 'ro', markersize=8, label='Dados experimentais')
+        elif all(p == P[0] for p in P):  # Isobárica
+            plt.hlines(P[0], min(V), max(V), colors='b', linestyles='-', 
+                      label=f'Isobárica (P={P[0]} Pa)')
+            
+        elif all(v == V[0] for v in V):  # Isocórica
+            plt.vlines(V[0], min(P), max(P), colors='b', linestyles='-',
+                     label=f'Isocórica (V={V[0]} m³)')
+            
+        else:  # Transformação composta (ex: isocórica + isotérmica)
+            # Plota linhas conectando os pontos
+            plt.plot(V, P, 'b--', alpha=0.5, label='Transformação composta')
     
-            # 2. Determina o tipo de transformação e plota a CURVA TEÓRICA
-            if all(t == T[0] for t in T):  # Isotérmica
-                v_curve = np.linspace(min(V), max(V), 100)
-                p_curve = (8.314 * T[0]) / v_curve  # PV = nRT (n=1)
-                plt.plot(v_curve, p_curve, 'b-', label=f'Isotérmica (T={T[0]} K)')
-                
-            elif all(p == P[0] for p in P):  # Isobárica
-                plt.hlines(P[0], min(V), max(V), colors='b', linestyles='-', 
-                          label=f'Isobárica (P={P[0]} Pa)')
-                
-            elif all(v == V[0] for v in V):  # Isocórica
-                plt.vlines(V[0], min(P), max(P), colors='b', linestyles='-',
-                         label=f'Isocórica (V={V[0]} m³)')
-                
-            else:  # Adiabática
-                gamma = 1.4
-                const = P[0] * (V[0] ** gamma)
-                v_curve = np.linspace(min(V), max(V), 100)
-                p_curve = const / (v_curve ** gamma)
-                plt.plot(v_curve, p_curve, 'b-', label='Adiabática')
-    
-            # Configurações do gráfico
-            plt.xlabel('Volume (m³)', fontsize=12)
-            plt.ylabel('Pressão (Pa)', fontsize=12)
-            plt.title('Transformação Termodinâmica', fontsize=14)
-            plt.grid(True, linestyle='--', alpha=0.5)
-            plt.legend()
-            plt.tight_layout()
-            plt.show()
+    # Configurações comuns
+    plt.xlabel('Volume (m³)')
+    plt.ylabel('Pressão (Pa)')
+    plt.grid(True)
+    plt.legend()
+    plt.tight_layout()
+    plt.show()  # Mostra UMA única figura
 
 
 # Testando com seus dados
