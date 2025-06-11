@@ -6,7 +6,7 @@
   ![logo](images/Logo_CTUP-removebg-preview.png)
 
 </div>
-<p align="justify"> Este projeto é uma calculadora simples para transformações termodinâmicas. Ela pode calcular calor, trabalho, variação da energia interna e da entropia em um gás monoatômico ideal a partir de uma sequência de pontos, cada um com pressão, volume e temperatura determinados. Além disso, ela retorna um gráfico P x V das transformações.</p>
+<p align="justify"> Este projeto é uma calculadora simples para transformações termodinâmicas. Ela pode calcular calor, trabalho, variação da energia interna e da entropia em um gás monoatômico ideal a partir de uma sequência de pontos, cada um com pressão, volume e temperatura determinados. Além disso, ela retorna um gráfico P x V das transformações e o rendimento de ciclos.</p>
 
 <img loading="lazy" src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>  ![Made withPython](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
 
