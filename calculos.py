@@ -36,17 +36,26 @@ def calculadora(tupla):
         QAB = WAB + UAB
         transformações.append((QAB, WAB, UAB, SAB))
 #Lista Q, W e delta U de cada transformação em ordem, na forma de tuplas.
-#Agora, calcula Q, W, delta U e delta S totais e adiciona por último na lista. Depois transforma em tupla.
-    Q = 0
+#Agora, calcula Qrecebido, Qcedido, W, delta U e delta S totais e rendimento e adiciona por último na lista.
+# Depois transforma em tupla. Se não for um ciclo, o rendimento é None.
+    Qr = 0
+    Qc = 0
     W = 0
     U = 0
     S = 0
     for t in range(len(transformações)):
-        Q += transformações[t][0]
+        if transformações[t][0] >= 0:
+            Qr += transformações[t][0]
+        else:
+            Qc += transformações[t][0]
         W += transformações[t][1]
         U += transformações[t][2]
         S += transformações[t][3]
-    total = (Q, W, U, S)
+    if teste[0] == teste[-1]:
+        rendimento = W/Qr
+    else:
+        rendimento = None
+    total = (Qr,Qc, W, U, S, rendimento)
     transformações.append(total)
     transformações = tuple(transformações)
     return transformações
