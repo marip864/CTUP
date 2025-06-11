@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 from PIL import Image, ImageTk  # Necessário para imagens em formatos como PNG ou JPG
 
 # Função para capturar o valor digitado
@@ -10,9 +11,12 @@ def capturar_dados():
         pressao = float(pressao)
         temperatura = float(temperatura)
         print(f"Pressão: {pressao} atm")
-        print(f"Temperatura: {temperatura} Pa")
+        print(f"Temperatura: {temperatura} K")
         abrirJanela(pressao, temperatura)
     except ValueError:
+        janelaPrincipal.withdraw()  
+        # Mostrar a message box
+        messagebox.showinfo("Information", "Por favor, insira valores numéricos!")
         print("Por favor, insira valores numéricos válidos.")
 
 def abrirJanela(p, t):
