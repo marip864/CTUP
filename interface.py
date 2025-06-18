@@ -13,19 +13,26 @@ def capturar_dados():
     temperatura2 = entrada_temperatura2.get()
     volume2 = entrada_volume2.get()
     # Conversão para float
-    pressao1 = float(pressao1)
-    temperatura1 = float(temperatura1)
-    volume1 = float(volume1)
-    pressao2 = float(pressao2)
-    temperatura2 = float(temperatura2)
-    volume2 = float(volume2)
-    print(f"Pressão inicial: {pressao1} atm")
-    print(f"Temperatura inicial: {temperatura1} K")
-    print(f"Volume inicial: {volume1} litros")
-    print(f"Pressão: {pressao2} atm")
-    print(f"Temperatura: {temperatura2} K")
-    print(f"Volume: {volume2} litros")
-    return pressao1, volume1, temperatura1, pressao2, volume2, temperatura2
+    try:
+        pressao1 = float(pressao1)
+        temperatura1 = float(temperatura1)
+        volume1 = float(volume1)
+        pressao2 = float(pressao2)
+        temperatura2 = float(temperatura2)
+        volume2 = float(volume2)
+        print(f"Pressão inicial: {pressao1} atm")
+        print(f"Temperatura inicial: {temperatura1} K")
+        print(f"Volume inicial: {volume1} litros")
+        print(f"Pressão: {pressao2} atm")
+        print(f"Temperatura: {temperatura2} K")
+        print(f"Volume: {volume2} litros")
+        return pressao1, volume1, temperatura1, pressao2, volume2, temperatura2
+    except ValueError:
+        janelaPrincipal.withdraw()  
+        # Mostrar a message box
+        messagebox.showinfo("Information", "Por favor, insira valores numéricos!")
+        print("Por favor, insira valores numéricos válidos.")
+        janelaPrincipal.deiconify()
 
 def parametrosNovaJanela():
     pressao1, volume1, temperatura1, pressao2, volume2, temperatura2 = capturar_dados()
@@ -67,85 +74,66 @@ def abrirJanela(p1, t1, v1, p2, t2, v2):
     tk.Button(novaJanela, text="Fechar", command=novaJanela.destroy).pack()
 
 
-    
 
-# Configuração da janela principal
+# Janela principal
 janelaPrincipal = tk.Tk()
 janelaPrincipal.title("Seja bem-vindo ao CTUP!")
-janelaPrincipal.geometry("400x800")
+janelaPrincipal.geometry("400x700")
+janelaPrincipal.configure(bg="#f0f0f0")
 
-# Carrega a imagem (usando PIL para maior compatibilidade)
-imagem = Image.open("images/Logo_CTUP-removebg-preview.png") 
+# Imagem
+imagem = Image.open("images/Logo_CTUP-removebg-preview.png")
 imagem_tk = ImageTk.PhotoImage(imagem)
+label_imagem = tk.Label(janelaPrincipal, image=imagem_tk, bg="#f0f0f0")
+label_imagem.pack(pady=10)
 
-# Adiciona a imagem em um Label
-label_imagem = tk.Label(janelaPrincipal, image=imagem_tk)
-label_imagem.pack()
 
-# Label da pressão inicial
-label_pressao1 = tk.Label(janelaPrincipal, text="Digite a pressão inicial (em Pa):")
-label_pressao1.pack(pady=5)
+# Estilo padrão
+label_style = {"font": ("Arial", 10), "bg": "#f0f0f0", "fg": "#333"}
 
-# Caixa de texto para pressão inicial (Entry)
-entrada_pressao1 = tk.Entry(janelaPrincipal, width=30)
-entrada_pressao1.pack(pady=5)
+# Função para criar campos
+def criar_campo(label_texto, entrada_var):
+    label = tk.Label(janelaPrincipal, text=label_texto, **label_style)
+    label.pack(pady=5)
+    entrada = tk.Entry(janelaPrincipal, width=30, textvariable=entrada_var)
+    entrada.pack(pady=5)
+    return entrada
 
-# Label da temperatura inicial
-label_temperatura1 = tk.Label(janelaPrincipal, text="Digite a temperatura inicial (em K):")
-label_temperatura1.pack(pady=5)
+# Variáveis e campos
+p1 = tk.StringVar()
+t1 = tk.StringVar()
+v1 = tk.StringVar()
+p2 = tk.StringVar()
+t2 = tk.StringVar()
+v2 = tk.StringVar()
 
-# Caixa de texto para temperatura inicial (Entry)
-entrada_temperatura1 = tk.Entry(janelaPrincipal, width=30)
-entrada_temperatura1.pack(pady=5)
+entrada_pressao1 = criar_campo("Digite a pressão inicial (em Pa):", p1)
+entrada_temperatura1 = criar_campo("Digite a temperatura inicial (em K):", t1)
+entrada_volume1 = criar_campo("Digite o volume inicial (em m³):", v1)
+entrada_pressao2 = criar_campo("Digite a pressão final (em Pa):", p2)
+entrada_temperatura2 = criar_campo("Digite a temperatura final (em K):", t2)
+entrada_volume2 = criar_campo("Digite o volume final (em m³):", v2)
 
-# Label do volume inicial
-label_volume1 = tk.Label(janelaPrincipal, text="Digite o volume inicial (em l):")
-label_volume1.pack(pady=5)
 
-# Caixa de texto para temperatura inicial (Entry)
-entrada_volume1 = tk.Entry(janelaPrincipal, width=30)
-entrada_volume1.pack(pady=5)
-
-# Label da pressão inicial
-label_pressao2 = tk.Label(janelaPrincipal, text="Digite a pressão inicial (em Pa):")
-label_pressao2.pack(pady=5)
-
-# Caixa de texto para pressão inicial (Entry)
-entrada_pressao2 = tk.Entry(janelaPrincipal, width=30)
-entrada_pressao2.pack(pady=5)
-
-# Label da temperatura inicial
-label_temperatura2 = tk.Label(janelaPrincipal, text="Digite a temperatura inicial (em K):")
-label_temperatura2.pack(pady=5)
-
-# Caixa de texto para temperatura inicial (Entry)
-entrada_temperatura2 = tk.Entry(janelaPrincipal, width=30)
-entrada_temperatura2.pack(pady=5)
-
-# Label do volume inicial
-label_volume2 = tk.Label(janelaPrincipal, text="Digite o volume inicial (em l):")
-label_volume2.pack(pady=5)
-
-# Caixa de texto para temperatura inicial (Entry)
-entrada_volume2 = tk.Entry(janelaPrincipal, width=30)
-entrada_volume2.pack(pady=5)
-
-# Botão para capturar os valores
 botao = tk.Button(
     janelaPrincipal,
     text="Clique Aqui",
-    font=("Arial", 14, "bold"), # Fonte, tamanho e estilo
-    bg="darkblue",             # Cor de fundo
-    fg="white",                 # Cor do texto
-    relief="raised",            # Estilo da borda (raised, sunken, flat, etc.)
-    bd=5,                       # Largura da borda
+    font=("Arial", 12, "bold"),
+    bg="darkblue",
+    fg="white",
+    relief="raised",
+    bd=5,
     command=parametrosNovaJanela
 )
-botao.pack(pady=5)
+botao.pack(pady=20)
 
-# Label para exibir o resultado
-label_resultado = tk.Label(janelaPrincipal, text="")
+
+# Resultado
+label_resultado = tk.Label(janelaPrincipal, text="", **label_style)
 label_resultado.pack(pady=5)
 
-# Inicia o loop da interface
+# Loop
 janelaPrincipal.mainloop()
+
+
+
