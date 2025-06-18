@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import ttk
 from PIL import Image, ImageTk  # Necessário para imagens em formatos como PNG ou JPG
+from calculos import calculadora
 
 # Função para capturar o valor digitado
 def capturar_dados():
@@ -21,10 +23,35 @@ def capturar_dados():
 
 def abrirJanela(p, t):
     novaJanela = tk.Toplevel()
-    novaJanela.title("Gráficos")
-    novaJanela.geometry("400x400")
+    novaJanela.title("Resultados do Ciclo Termodinâmico")
+    novaJanela.geometry("1000x400")
     tk.Label(novaJanela, text=f"Dados recebidos: {p} e {t}").pack(pady=20)
+    
+    ciclo = [(10, 2, 5),(20, 1, 5), (20, 2, 10), (40, 1, 10)]
+    resultado = calculadora(ciclo)
+
+    cols = ("Q", "W", "ΔU", "ΔS")
+    tree = ttk.Treeview(novaJanela, columns=cols, show='headings')
+
+    for col in cols:
+        tree.heading(col, text=col)
+
+    for transformacao in resultado[:-2]:
+        tree.insert("", "end", values=transformacao)
+
+    
+    totais = resultado[-2]
+    tree.insert("", "end", values=("Totais", "", "", ""))
+    tree.insert("", "end", values=totais)
+
+    rendimento = resultado[-1]
+    tree.insert("", "end", values=("Rendimento", rendimento, "", "", ""))
+
+    tree.pack()
+
     tk.Button(novaJanela, text="Fechar", command=novaJanela.destroy).pack()
+
+
     
 
 # Configuração da janela principal
