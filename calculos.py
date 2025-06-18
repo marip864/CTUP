@@ -1,18 +1,6 @@
-#Recebe os dados do input como uma tupla de tuplas (P, V, T)
+#Recebe os dados do input como uma tupla (PA, VA, TA, PB, VB, TB)
 from math import log
-def calculadora(p1, t1, v1, p2, t2, v2):
-    ciclo = ((p1, t1, v1), (p2, t2, v2))
-    transformações = [] #Aqui ficam os valores reais, para aproximar no final
-    transformações_arredondadas = [] #Aqui ficam os valores aproximados
-    for n in range(len(ciclo)-1):
-        pontoA = ciclo[n]
-        pontoB = ciclo[n+1]
-        PA = pontoA[0]
-        VA = pontoA[1]
-        TA = pontoA[2]
-        PB = pontoB[0]
-        VB = pontoB[1]
-        TB = pontoB[2]
+def calculadora(PA, VA, TA, PB, VB, TB):
 #Verifica o tipo de transformação e calcula delta U, delta S, W e Q para cada uma delas.
 #Se nenhum input for igual, assume que é adiabática reversível.
         UAB = (3/2) * ((PB * VB) - (PA * VA))
@@ -33,32 +21,6 @@ def calculadora(p1, t1, v1, p2, t2, v2):
             WAB = -UAB
             SAB = 0
         QAB = WAB + UAB
-#Lista Q, W e delta U de cada transformação em ordem, na forma de tuplas, e arredonda.
-        transformações.append((QAB, WAB, UAB, SAB))
-        transformações_arredondadas.append((round(QAB,3), round(WAB,3), round(UAB, 3), round(SAB, 3)))
-#Agora, calcula Qrecebido, Qcedido, Q, W, delta U e delta S totais, arredonda e adiciona por último.
-    Qr = 0
-    Qc = 0
-    W = 0
-    U = 0
-    S = 0
-    for t in range(len(transformações)):
-        if transformações[t][0] >= 0:
-            Qr += transformações[t][0]
-        else:
-            Qc += transformações[t][0]
-        Q = Qr + Qc
-        W += transformações[t][1]
-        U += transformações[t][2]
-        S += transformações[t][3]
-    total_arredondado = (round(Qr,3),round(Qc,3),round(Q,3), round(W,3),round(U,3),round(S,3))
-    transformações_arredondadas.append(total_arredondado)
-#Se for um ciclo, calcula o rendimento aproximado.
-    if ciclo[0] == ciclo[-1]:
-        rendimento = round(W/Qr, 3)
-    else:
-        rendimento = None
-    transformações_arredondadas.append(rendimento)
-#Agora transforma os dados na tupla a ser retornada.
-    transformações_arredondadas = tuple(transformações_arredondadas)
-    return transformações_arredondadas
+#Lista Q, W e delta U em ordem, na forma de tuplas, e arredonda.
+        transformações = ((round(QAB,3), round(WAB,3), round(UAB, 3), round(SAB, 3)))
+        return transformações
