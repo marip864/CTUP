@@ -36,8 +36,8 @@ def calculadora(tupla):
         transformações.append((QAB, WAB, UAB, SAB))
         transformações_bonitas.append((round(QAB,3), round(WAB,3), round(UAB, 3), round(SAB, 3)))
 #Lista Q, W e delta U de cada transformação em ordem, na forma de tuplas.
-#Agora, calcula Qrecebido, Qcedido, W, delta U e delta S totais.
-# Depois arredonda e adiciona por último na lista.
+#Agora, calcula Qrecebido, Qcedido, Q, W, delta U e delta S totais.
+#Depois arredonda e adiciona por último na lista.
     Qr = 0
     Qc = 0
     W = 0
@@ -48,10 +48,11 @@ def calculadora(tupla):
             Qr += transformações[t][0]
         else:
             Qc += transformações[t][0]
+        Q = Qr + Qc
         W += transformações[t][1]
         U += transformações[t][2]
         S += transformações[t][3]
-    total_bonito = (round(Qr,3),round(Qc,3),round(W,3),round(U,3),round(S,3))
+    total_bonito = (round(Qr,3),round(Qc,3),round(Q,3)round(W,3),round(U,3),round(S,3))
     transformações_bonitas.append(total_bonito)
 #Se for um ciclo, calcula o rendimento aproximado.
     if teste[0] == teste[-1]:
