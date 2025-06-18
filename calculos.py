@@ -1,12 +1,12 @@
-teste = ((10, 2, 5),(20, 1, 5), (20, 2, 10), (40, 1, 10))
 #Recebe os dados do input como uma tupla de tuplas (P, V, T)
 from math import log
-def calculadora(tupla):
+def calculadora(p1, t1, v1, p2, t2, v2):
+    ciclo = ((p1, t1, v1), (p2, t2, v2))
     transformações = [] #Aqui ficam os valores reais, para aproximar no final
     transformações_arredondadas = [] #Aqui ficam os valores aproximados
-    for n in range(len(tupla)-1):
-        pontoA = tupla[n]
-        pontoB = tupla[n+1]
+    for n in range(len(ciclo)-1):
+        pontoA = ciclo[n]
+        pontoB = ciclo[n+1]
         PA = pontoA[0]
         VA = pontoA[1]
         TA = pontoA[2]
@@ -54,7 +54,7 @@ def calculadora(tupla):
     total_arredondado = (round(Qr,3),round(Qc,3),round(Q,3), round(W,3),round(U,3),round(S,3))
     transformações_arredondadas.append(total_arredondado)
 #Se for um ciclo, calcula o rendimento aproximado.
-    if teste[0] == teste[-1]:
+    if ciclo[0] == ciclo[-1]:
         rendimento = round(W/Qr, 3)
     else:
         rendimento = None
@@ -62,4 +62,3 @@ def calculadora(tupla):
 #Agora transforma os dados na tupla a ser retornada.
     transformações_arredondadas = tuple(transformações_arredondadas)
     return transformações_arredondadas
-print(calculadora(teste))

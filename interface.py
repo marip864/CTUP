@@ -6,33 +6,44 @@ from calculos import calculadora
 
 # Função para capturar o valor digitado
 def capturar_dados():
-    pressao = entrada_pressao.get()
-    temperatura = entrada_temperatura.get()
+    pressao1 = entrada_pressao1.get()
+    temperatura1 = entrada_temperatura1.get()
+    volume1 = entrada_volume1.get()
+    pressao2 = entrada_pressao2.get()
+    temperatura2 = entrada_temperatura2.get()
+    volume2 = entrada_volume2.get()
     # Conversão para float
-    pressao = float(pressao)
-    temperatura = float(temperatura)
-    print(f"Pressão: {pressao} atm")
-    print(f"Temperatura: {temperatura} K")
-    return pressao, temperatura
+    pressao1 = float(pressao1)
+    temperatura1 = float(temperatura1)
+    volume1 = float(volume1)
+    pressao2 = float(pressao2)
+    temperatura2 = float(temperatura2)
+    volume2 = float(volume2)
+    print(f"Pressão inicial: {pressao1} atm")
+    print(f"Temperatura inicial: {temperatura1} K")
+    print(f"Volume inicial: {volume1} litros")
+    print(f"Pressão: {pressao2} atm")
+    print(f"Temperatura: {temperatura2} K")
+    print(f"Volume: {volume2} litros")
+    return pressao1, volume1, temperatura1, pressao2, volume2, temperatura2
 
 def parametrosNovaJanela():
-    pressao, temperatura = capturar_dados()
+    pressao1, volume1, temperatura1, pressao2, volume2, temperatura2 = capturar_dados()
     try:
-        abrirJanela(pressao, temperatura)
+        abrirJanela(pressao1, temperatura1, volume1, pressao2, volume2, temperatura2)
     except ValueError:
         janelaPrincipal.withdraw()  
         # Mostrar a message box
         messagebox.showinfo("Information", "Por favor, insira valores numéricos!")
         print("Por favor, insira valores numéricos válidos.")
 
-def abrirJanela(p, t):
+def abrirJanela(p1, t1, v1, p2, t2, v2):
     novaJanela = tk.Toplevel()
     novaJanela.title("Resultados do Ciclo Termodinâmico")
     novaJanela.geometry("1000x400")
-    tk.Label(novaJanela, text=f"Dados recebidos: {p} e {t}").pack(pady=20)
-    
-    ciclo = [(10, 2, 5),(20, 1, 5), (20, 2, 10), (40, 1, 10)]
-    resultado = calculadora(ciclo)
+    tk.Label(novaJanela, text=f"Dados recebidos: {p1} e {t1} e {v1}").pack(pady=20)
+
+    resultado = calculadora(p1, t1, v1, p2, t2, v2)
 
     cols = ("Q", "W", "ΔU", "ΔS")
     tree = ttk.Treeview(novaJanela, columns=cols, show='headings')
@@ -61,7 +72,7 @@ def abrirJanela(p, t):
 # Configuração da janela principal
 janelaPrincipal = tk.Tk()
 janelaPrincipal.title("Seja bem-vindo ao CTUP!")
-janelaPrincipal.geometry("400x400")
+janelaPrincipal.geometry("400x800")
 
 # Carrega a imagem (usando PIL para maior compatibilidade)
 imagem = Image.open("images/Logo_CTUP-removebg-preview.png") 
@@ -71,21 +82,53 @@ imagem_tk = ImageTk.PhotoImage(imagem)
 label_imagem = tk.Label(janelaPrincipal, image=imagem_tk)
 label_imagem.pack()
 
-# Label da pressão
-label_pressao = tk.Label(janelaPrincipal, text="Digite a pressão (em Pa):")
-label_pressao.pack(pady=5)
+# Label da pressão inicial
+label_pressao1 = tk.Label(janelaPrincipal, text="Digite a pressão inicial (em Pa):")
+label_pressao1.pack(pady=5)
 
-# Caixa de texto para pressão (Entry)
-entrada_pressao = tk.Entry(janelaPrincipal, width=30)
-entrada_pressao.pack(pady=5)
+# Caixa de texto para pressão inicial (Entry)
+entrada_pressao1 = tk.Entry(janelaPrincipal, width=30)
+entrada_pressao1.pack(pady=5)
 
-# Label da temperatura
-label_temperatura = tk.Label(janelaPrincipal, text="Digite a temperatura (em K):")
-label_temperatura.pack(pady=5)
+# Label da temperatura inicial
+label_temperatura1 = tk.Label(janelaPrincipal, text="Digite a temperatura inicial (em K):")
+label_temperatura1.pack(pady=5)
 
-# Caixa de texto para temperatura (Entry)
-entrada_temperatura = tk.Entry(janelaPrincipal, width=30)
-entrada_temperatura.pack(pady=5)
+# Caixa de texto para temperatura inicial (Entry)
+entrada_temperatura1 = tk.Entry(janelaPrincipal, width=30)
+entrada_temperatura1.pack(pady=5)
+
+# Label do volume inicial
+label_volume1 = tk.Label(janelaPrincipal, text="Digite o volume inicial (em l):")
+label_volume1.pack(pady=5)
+
+# Caixa de texto para temperatura inicial (Entry)
+entrada_volume1 = tk.Entry(janelaPrincipal, width=30)
+entrada_volume1.pack(pady=5)
+
+# Label da pressão inicial
+label_pressao2 = tk.Label(janelaPrincipal, text="Digite a pressão inicial (em Pa):")
+label_pressao2.pack(pady=5)
+
+# Caixa de texto para pressão inicial (Entry)
+entrada_pressao2 = tk.Entry(janelaPrincipal, width=30)
+entrada_pressao2.pack(pady=5)
+
+# Label da temperatura inicial
+label_temperatura2 = tk.Label(janelaPrincipal, text="Digite a temperatura inicial (em K):")
+label_temperatura2.pack(pady=5)
+
+# Caixa de texto para temperatura inicial (Entry)
+entrada_temperatura2 = tk.Entry(janelaPrincipal, width=30)
+entrada_temperatura2.pack(pady=5)
+
+# Label do volume inicial
+label_volume2 = tk.Label(janelaPrincipal, text="Digite o volume inicial (em l):")
+label_volume2.pack(pady=5)
+
+# Caixa de texto para temperatura inicial (Entry)
+entrada_volume2 = tk.Entry(janelaPrincipal, width=30)
+entrada_volume2.pack(pady=5)
 
 # Botão para capturar os valores
 botao = tk.Button(
