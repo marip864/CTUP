@@ -9,11 +9,15 @@ def capturar_dados():
     pressao = entrada_pressao.get()
     temperatura = entrada_temperatura.get()
     # Conversão para float
+    pressao = float(pressao)
+    temperatura = float(temperatura)
+    print(f"Pressão: {pressao} atm")
+    print(f"Temperatura: {temperatura} K")
+    return pressao, temperatura
+
+def parametrosNovaJanela():
+    pressao, temperatura = capturar_dados()
     try:
-        pressao = float(pressao)
-        temperatura = float(temperatura)
-        print(f"Pressão: {pressao} atm")
-        print(f"Temperatura: {temperatura} K")
         abrirJanela(pressao, temperatura)
     except ValueError:
         janelaPrincipal.withdraw()  
@@ -92,7 +96,7 @@ botao = tk.Button(
     fg="white",                 # Cor do texto
     relief="raised",            # Estilo da borda (raised, sunken, flat, etc.)
     bd=5,                       # Largura da borda
-    command=capturar_dados
+    command=parametrosNovaJanela
 )
 botao.pack(pady=5)
 
