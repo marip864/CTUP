@@ -52,7 +52,7 @@ def calculadora(tupla):
         W += transformações[t][1]
         U += transformações[t][2]
         S += transformações[t][3]
-    total_bonito = (round(Qr,3),round(Qc,3),round(Q,3)round(W,3),round(U,3),round(S,3))
+    total_bonito = (round(Qr,3),round(Qc,3),round(Q,3), round(W,3),round(U,3),round(S,3))
     transformações_bonitas.append(total_bonito)
 #Se for um ciclo, calcula o rendimento aproximado.
     if teste[0] == teste[-1]:
