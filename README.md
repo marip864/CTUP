@@ -16,21 +16,26 @@ Instituição de ensino vinculada aos desenvolvedores e colaboradores do Projeto
 
 </p>
 
-<h1>Descrição do projeto</a></h1>
+<h2>Descrição do projeto</a></h2>
 
 <p align="justify"> Este projeto é uma calculadora simples para transformações termodinâmicas. Ela pode calcular calor, trabalho, variação da energia interna e da entropia em um gás monoatômico ideal a partir de uma sequência de pontos, cada um com pressão, volume e temperatura determinados. Além disso, ela retorna um gráfico P x V das transformações e o rendimento de ciclos.</p>
 
 <p align='justify'> A calculadora admite apenas transformações isotérmicas, isométricas, isobáricas ou adiabáticas. As limitações de operações com float no Python podem ocasionar pequenos erros. Para evitar isso, o programa assume que qualquer transformação em que P, V e T mudam é adiabática reversível. </p>
 
-<h1>Desenvolvedores do Projeto</a></h1>
+<h2>Quer um guia mais detalhado sobre o Projeto? </h2>
+Confira no pdf a seguir, desenvolvido especialmente para você!
+
+<h2>Como posso rodar o projeto?</h2>
+
+<h2>Desenvolvedores do Projeto</a></h2>
 <ul>
-  <li>Caio Ávila Paulo (https://github.com/Caio1833)</li>
-  <li>Lázaro Santana Ribeiro (https://github.com/lazaroribeiro)</li>
-  <li>Mariana Melo Pereira (https://github.com/marip864)</li>
-  <li>Samarah Luiza de Medeiros Ramos (https://github.com/SamarahRamos)</li>
+  <li>Caio Ávila Paulo (https://github.com/Caio1833): idealizador do Projeto e responsável pelo estudo teórico/codificação dos cálculos</li>
+  <li>Lázaro Santana Ribeiro (https://github.com/lazaroribeiro): repsonsável pela geração de arquivos CSV e relatório</li>
+  <li>Mariana Melo Pereira (https://github.com/marip864): responsável pela interface gráfica e fluxo de funcionamento da aplicação</li>
+  <li>Samarah Luiza de Medeiros Ramos (https://github.com/SamarahRamos): repsonsável pela geração da representação gráfica das transofrmações termodinâmicas</li>
 </ul>
 
-<h1>Professores Colaboradores</a></h1>
+<h2>Professores Repsonsáveis</a></h2>
 <ul>
   <li>Prof. Dr. Daniel Roberto Cassar (https://github.com/drcassar)</li>
   <li>Prof. Dr. James Moraes de Almeida (https://github.com/jamesmalmeida)</li>
