@@ -3,7 +3,7 @@
 </h1>
 <div align="center">
 
-  ![logo](images/Logo_CTUP-removebg-preview.png)
+  ![logo](images/Logo_CTUP__1_-removebg-preview.png)
 
 </div>
 
@@ -32,7 +32,7 @@ Confira no pdf a seguir, desenvolvido especialmente para você!
   <li>Caio Ávila Paulo (https://github.com/Caio1833): idealizador do Projeto e responsável pelo estudo teórico/codificação dos cálculos</li>
   <li>Lázaro Santana Ribeiro (https://github.com/lazaroribeiro): repsonsável pela geração de arquivos CSV e relatório</li>
   <li>Mariana Melo Pereira (https://github.com/marip864): responsável pela interface gráfica e fluxo de funcionamento da aplicação</li>
-  <li>Samarah Luiza de Medeiros Ramos (https://github.com/SamarahRamos): repsonsável pela geração da representação gráfica das transofrmações termodinâmicas</li>
+  <li>Samarah Luiza de Medeiros Ramos (https://github.com/SamarahRamos): repsonsável pela geração da representação gráfica das transformações termodinâmicas</li>
 </ul>
 
 <h2>Professores Repsonsáveis</a></h2>
