@@ -25,14 +25,19 @@ Instituição de ensino vinculada aos desenvolvedores e colaboradores do Projeto
 <h2>Quer um guia mais detalhado sobre o Projeto? </h2>
 Confira no pdf a seguir, desenvolvido especialmente para você!
 
-<h2>Como posso rodar o projeto?</h2>
+<h2>Como posso rodar o Projeto na minha máquina?</h2>
+
+- `Passo 1`: clonar o repositório ou baixar arquivo zip
+- `Passo 2`: instalar bibliotecas [matplotlib.pyplot] e [tkinter]
+- `Passo 3`: rodar arquivo [main.py]
+
 
 <h2>Desenvolvedores do Projeto</a></h2>
 <ul>
-  <li>Caio Ávila Paulo (https://github.com/Caio1833): idealizador do Projeto e responsável pelo estudo teórico/codificação dos cálculos</li>
-  <li>Lázaro Santana Ribeiro (https://github.com/lazaroribeiro): repsonsável pela geração de arquivos CSV e relatório</li>
-  <li>Mariana Melo Pereira (https://github.com/marip864): responsável pela interface gráfica e fluxo de funcionamento da aplicação</li>
-  <li>Samarah Luiza de Medeiros Ramos (https://github.com/SamarahRamos): repsonsável pela geração da representação gráfica das transformações termodinâmicas</li>
+  <li>Caio Ávila Paulo (https://github.com/Caio1833): idealizador do Projeto e responsável pelo arquivo calculaNpontos.py</li>
+  <li>Lázaro Santana Ribeiro (https://github.com/lazaroribeiro): repsonsável pelo arquivos.py e relatório</li>
+  <li>Mariana Melo Pereira (https://github.com/marip864): responsável pelo arquivo main.py e fluxo de funcionamento da aplicação</li>
+  <li>Samarah Luiza de Medeiros Ramos (https://github.com/SamarahRamos): repsonsável pelo arquivo graficos.py</li>
 </ul>
 
 <h2>Professores Repsonsáveis</a></h2>
