@@ -22,14 +22,18 @@ Instituição de ensino vinculada aos desenvolvedores e colaboradores do Projeto
 
 <p align='justify'> A calculadora admite apenas transformações isotérmicas, isométricas, isobáricas ou adiabáticas. As limitações de operações com float no Python podem ocasionar pequenos erros. Para evitar isso, o programa assume que qualquer transformação em que P, V e T mudam é adiabática reversível. </p>
 
+<h2>Aviso de licença</h2>
+Todos são livres para utilizar e modificar os códigos deste repositório, mas desde que sejam dados os devidos créditos.
+
 <h2>Quer um guia mais detalhado sobre o Projeto? </h2>
 Confira no pdf a seguir, desenvolvido especialmente para você!
 
 <h2>Como posso rodar o Projeto na minha máquina?</h2>
 
-- `Passo 1`: clonar o repositório ou baixar arquivo zip
-- `Passo 2`: instalar bibliotecas [matplotlib.pyplot] e [tkinter]
-- `Passo 3`: rodar arquivo [main.py]
+- Passo 1: clonar o repositório ou baixar arquivo zip
+- Passo 2: instalar biblioteca `matplotlib.pyplot`, pelo comando `pip install matplotlib` no terminal
+- Passo 3: instalar biblioteca `tkinter`, pelo comando `pip install tkinter` no terminal
+- Passo 4: rodar arquivo `main.py`
 
 
 <h2>Desenvolvedores do Projeto</a></h2>
