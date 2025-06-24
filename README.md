@@ -39,9 +39,9 @@ Confira no pdf a seguir, desenvolvido especialmente para você!
 <h2>Desenvolvedores do Projeto</a></h2>
 <ul>
   <li>Caio Ávila Paulo (https://github.com/Caio1833): idealizador do Projeto e responsável pelo arquivo calculaNpontos.py</li>
-  <li>Lázaro Santana Ribeiro (https://github.com/lazaroribeiro): repsonsável pelo arquivos.py e relatório</li>
+  <li>Lázaro Santana Ribeiro (https://github.com/lazaroribeiro): responsável pelo arquivos.py e relatório</li>
   <li>Mariana Melo Pereira (https://github.com/marip864): responsável pelo arquivo main.py e fluxo de funcionamento da aplicação</li>
-  <li>Samarah Luiza de Medeiros Ramos (https://github.com/SamarahRamos): repsonsável pelo arquivo graficos.py</li>
+  <li>Samarah Luiza de Medeiros Ramos (https://github.com/SamarahRamos): responsável pelo arquivo graficos.py</li>
 </ul>
 
 <h2>Professores Repsonsáveis</a></h2>
