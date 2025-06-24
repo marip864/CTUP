@@ -8,10 +8,14 @@ def plotar_graficos(resultados):
         print("São necessários pelo menos 2 pontos para uma transformação")
         return
     
+    # Lista para armazenar as figuras
+    figuras = []
+
     # Plota um gráfico para cada par de pontos consecutivos
     for i in range(len(resultados)-1):
-        plt.figure(figsize=(8, 5))  # Cria nova figura para cada transformação
+        figuras.append(plt.figure(figsize=(8, 5)))  # Cria nova figura para cada transformação
         
+
         P1, V1, T1 = resultados[i]
         P2, V2, T2 = resultados[i+1]
         
@@ -40,5 +44,5 @@ def plotar_graficos(resultados):
         plt.grid(True, linestyle='--', alpha=0.6)
         plt.legend()
         plt.tight_layout()
-    
-    plt.show()
+    for fig in reversed(figuras):
+        fig.show()
