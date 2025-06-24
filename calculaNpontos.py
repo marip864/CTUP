@@ -52,7 +52,10 @@ def calculadora(tupla):
     transformações_arredondadas.append(total_arredondado)
 #Se for um ciclo, calcula o rendimento aproximado.
     if tupla[0] == tupla[-1]:
-        rendimento = round(W/Qr, 3)
+        if round(W/Qr, 3) > 0: #máquina térmica
+            rendimento = round(W/Qr, 3)
+        else: #refrigerador
+            rendimento = abs(round(Qc/W))
     else:
         rendimento = None
     transformações_arredondadas.append(rendimento)
