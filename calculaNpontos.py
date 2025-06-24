@@ -55,7 +55,7 @@ def calculadora(tupla):
         if round(W/Qr, 3) > 0: #máquina térmica
             rendimento = round(W/Qr, 3)
         else: #refrigerador
-            rendimento = abs(round(Qc/W))
+            rendimento = abs(round(Qc/W, 3))
     else:
         rendimento = None
     transformações_arredondadas.append(rendimento)
