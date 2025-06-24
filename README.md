@@ -18,9 +18,9 @@ Instituição de ensino vinculada aos desenvolvedores e colaboradores do Projeto
 
 <h2>Descrição do projeto</a></h2>
 
-<p align="justify"> Este projeto é uma calculadora simples para transformações termodinâmicas. Ela pode calcular calor, trabalho, variação da energia interna e da entropia em um gás monoatômico ideal a partir de uma sequência de pontos, cada um com pressão, volume e temperatura determinados. Além disso, ela retorna um gráfico P x V das transformações e o rendimento de ciclos.</p>
+<p align="justify"> Este projeto é uma calculadora simples para transformações termodinâmicas. Ela pode calcular calor, trabalho, variação da energia interna e da entropia em um gás monoatômico ideal a partir de uma sequência de pontos, cada um com pressão, volume e temperatura determinados. Além disso, ela retorna um gráfico P x V de cada uma das transformações e o rendimento de ciclos.</p>
 
-<p align='justify'> A calculadora admite apenas transformações isotérmicas, isométricas, isobáricas ou adiabáticas. As limitações de operações com float no Python podem ocasionar pequenos erros. Para evitar isso, o programa assume que qualquer transformação em que P, V e T mudam é adiabática reversível. </p>
+<p align='justify'> A calculadora admite apenas transformações isotérmicas, isométricas ou isobáricas. </p>
 
 <h2>Aviso de licença</h2>
 Todos são livres para utilizar e modificar os códigos deste repositório, mas desde que sejam dados os devidos créditos.

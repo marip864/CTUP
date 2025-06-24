@@ -26,53 +26,53 @@ def abrirJanelaResultados(dados):
         return
     try:
         resultados = calculadora(tuple(dados))
+
+        # Acessa a tupla para obter valores totais, rendimento e W, U, S das transformações
+        totais = resultados[-2]
+        rendimento = resultados[-1]
+        transformacoes = resultados[:-2]
+
+        # Abre nova janela para mostrar resultados calculados
+        novaJanela = tk.Toplevel()
+        novaJanela.title("Resultados do Ciclo Termodinâmico")
+        novaJanela.geometry("900x200")
+
+        cols = ("Transformação", "Q", "W", "ΔU", "ΔS")
+        tree = ttk.Treeview(novaJanela, columns=cols, show='headings', height=10)
+        for col in cols:
+            tree.heading(col, text=col)
+            tree.column(col, width=150, anchor="center")
+
+        # Inserir transformações
+        for i, t in enumerate(transformacoes):
+            tree.insert("", "end", values=(f"{i+1}", *t))
+            tree.insert("", "end", values=("", "", "", "", ""))  # linha em branco para espaçamento
+
+        # Inserir totais
+        totais_formatados = (
+            "Totais",
+            f"{totais[2]} (Q = Qr + Qc)",
+            totais[3],
+            totais[4],
+            totais[5]
+        )
+        tree.insert("", "end", values=totais_formatados)
+
+        # Inserir rendimento
+        rendimento_formatado = (
+            "Rendimento",
+            "",
+            "",
+            "",
+            f"{round(rendimento * 100, 2)}%" if rendimento is not None else "N/A"
+        )
+        tree.insert("", "end", values=rendimento_formatado)
+
+        tree.pack(fill="both", expand=True, padx=10, pady=10)
+        ttk.Button(novaJanela, text="Fechar", command=novaJanela.destroy).pack(pady=5)
     except Exception as e:
-        tk.messagebox.showinfo("Erro", f"Erro ao calcular os resultados: {e}")
+        tk.messagebox.showinfo("Erro", "A CTUP não serve a esses propósitos!")
         return
-
-    # Acessa a tupla para obter valores totais, rendimento e W, U, S das transformações
-    totais = resultados[-2]
-    rendimento = resultados[-1]
-    transformacoes = resultados[:-2]
-
-    # Abre nova janela para mostrar resultados calculados
-    novaJanela = tk.Toplevel()
-    novaJanela.title("Resultados do Ciclo Termodinâmico")
-    novaJanela.geometry("900x200")
-
-    cols = ("Transformação", "Q", "W", "ΔU", "ΔS")
-    tree = ttk.Treeview(novaJanela, columns=cols, show='headings', height=10)
-    for col in cols:
-        tree.heading(col, text=col)
-        tree.column(col, width=150, anchor="center")
-
-    # Inserir transformações
-    for i, t in enumerate(transformacoes):
-        tree.insert("", "end", values=(f"{i+1}", *t))
-        tree.insert("", "end", values=("", "", "", "", ""))  # linha em branco para espaçamento
-
-    # Inserir totais
-    totais_formatados = (
-        "Totais",
-        f"{totais[2]} (Q = Qr + Qc)",
-        totais[3],
-        totais[4],
-        totais[5]
-    )
-    tree.insert("", "end", values=totais_formatados)
-
-    # Inserir rendimento
-    rendimento_formatado = (
-        "Rendimento",
-        "",
-        "",
-        "",
-        f"{round(rendimento * 100, 2)}%" if rendimento is not None else "N/A"
-    )
-    tree.insert("", "end", values=rendimento_formatado)
-
-    tree.pack(fill="both", expand=True, padx=10, pady=10)
-    ttk.Button(novaJanela, text="Fechar", command=novaJanela.destroy).pack(pady=5)
 
 def gerar_grafico(dados):
     plotar_graficos(dados)
