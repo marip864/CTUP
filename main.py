@@ -6,8 +6,10 @@ from calculaNpontos import calculadora
 from graficos import plotar_graficos
 
 def capturar_dados(entries):
+    # Tratamento de exceção: caso não sejam digitados valores numéricos
     try:
         dados = []
+        # Conversão dos dados para float
         for entry_p, entry_v, entry_t in entries:
             pressao = float(entry_p.get())
             volume = float(entry_v.get())
@@ -18,20 +20,22 @@ def capturar_dados(entries):
         tk.messagebox.showinfo("Erro", "Digite valores numéricos para pressão, volume e temperatura!")
 
 def abrirJanelaResultados(dados):
+    # Verificação dos dados inseridos
     if len(dados) < 2:
         tk.messagebox.showinfo("Erro", "É necessário pelo menos 2 pontos para calcular o ciclo.")
         return
-
     try:
         resultados = calculadora(tuple(dados))
     except Exception as e:
         tk.messagebox.showinfo("Erro", f"Erro ao calcular os resultados: {e}")
         return
 
+    # Acessa a tupla para obter valores totais, rendimento e W, U, S das transformações
     totais = resultados[-2]
     rendimento = resultados[-1]
     transformacoes = resultados[:-2]
 
+    # Abre nova janela para mostrar resultados calculados
     novaJanela = tk.Toplevel()
     novaJanela.title("Resultados do Ciclo Termodinâmico")
     novaJanela.geometry("900x200")
@@ -74,6 +78,7 @@ def gerar_grafico(dados):
     plotar_graficos(dados)
 
 def criar_campos_pontos(janela, num_pontos):
+    # Define widget scrollbar
     canvas = tk.Canvas(janela)
     scrollbar = ttk.Scrollbar(janela, orient="vertical", command=canvas.yview)
     canvas.configure(yscrollcommand=scrollbar.set)
@@ -88,15 +93,16 @@ def criar_campos_pontos(janela, num_pontos):
         canvas.configure(scrollregion=canvas.bbox("all"))
 
     frame_scroll.bind("<Configure>", on_configure)
-
     entries = []
 
     for i in range(num_pontos):
+        # Frame para scrollbar
         frame = ttk.Frame(frame_scroll, padding="10")
         frame.grid(row=i, column=0, pady=5)
         frame.columnconfigure(0, weight=1)
         frame.columnconfigure(1, weight=1)
 
+        # Labels e campos de texto (para pressão, volume e temperatura)
         label_p = ttk.Label(frame, text=f"Ponto {i+1} - Pressão (Pa):", anchor="center", justify="center")
         label_p.grid(row=0, column=0, sticky="e", padx=5)
         entry_p = ttk.Entry(frame, justify="center", width=20)
@@ -112,6 +118,7 @@ def criar_campos_pontos(janela, num_pontos):
         entry_t = ttk.Entry(frame, justify="center", width=20)
         entry_t.grid(row=2, column=1, sticky="w", padx=5)
 
+        # Adiciona os valores inseridos em uma lista
         entries.append((entry_p, entry_v, entry_t))
 
     # Botões centralizados
@@ -129,21 +136,26 @@ def criar_campos_pontos(janela, num_pontos):
 
 
 def exibir_campos_pontos():
+    # Tratamento de exceção
     try:
+        # Cria os campos de acordo com a quantidade de pontos determinada
         num_pontos = int(entrada_num_pontos.get())
         if num_pontos < 2:
             raise ValueError("Insira pelo menos 2 pontos.")
         janela_num_pontos.pack_forget()
         janela_campos_pontos.pack(fill="both", expand=True)
+        # Chama a função criar_campos_pontos
         criar_campos_pontos(janela_campos_pontos, num_pontos)
         botao_voltar.place(x=10, y=10)  
     except Exception as e:
         tk.messagebox.showinfo("Erro", "Digite um valor numérico, maior ou igual a 2!")
 
 def voltar_tela_inicial():
+    # Destrói os widget: labels, campos de texto e botões
     for widget in janela_campos_pontos.winfo_children():
         widget.destroy()
     janela_campos_pontos.pack_forget()
+    # Retorna à tela inicial
     janela_num_pontos.pack(fill="both", expand=True)
 
 
