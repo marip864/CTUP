@@ -13,7 +13,6 @@ def calculadora(tupla):
         VB = pontoB[1]
         TB = pontoB[2]
 #Verifica o tipo de transformação e calcula delta U, delta S, W e Q para cada uma delas.
-#Se nenhum input for igual, assume que é adiabática reversível.
         UAB = (3/2) * ((PB * VB) - (PA * VA))
 #Isotérmica:
         if TA == TB:
@@ -27,10 +26,9 @@ def calculadora(tupla):
         elif VA == VB:
             WAB = 0
             SAB = (3/2) * ((PA * VA)/TA) * log(TB/TA) 
-#Adiabática:
+#Se não for nenhuma das três, dá erro
         else:
-            WAB = -UAB
-            SAB = 0
+            return
         QAB = WAB + UAB
 #Lista Q, W e delta U de cada transformação em ordem, na forma de tuplas, e arredonda.
         transformações.append((QAB, WAB, UAB, SAB))
