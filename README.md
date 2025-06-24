@@ -32,7 +32,7 @@ Confira no pdf a seguir, desenvolvido especialmente para você!
 
 - Passo 1: clonar o repositório ou baixar arquivo zip
 - Passo 2: instalar biblioteca `matplotlib.pyplot`, pelo comando `pip install matplotlib` no terminal
-- Passo 3: instalar biblioteca `tkinter`, pelo comando `pip install tkinter` no terminal
+- Passo 3: instalar biblioteca `tkinter`, pelo comando `pip install tk` no terminal
 - Passo 4: rodar arquivo `main.py`
 
 
@@ -44,7 +44,7 @@ Confira no pdf a seguir, desenvolvido especialmente para você!
   <li>Samarah Luiza de Medeiros Ramos (https://github.com/SamarahRamos): responsável pelo arquivo graficos.py</li>
 </ul>
 
-<h2>Professores Repsonsáveis</a></h2>
+<h2>Professores Responsáveis</a></h2>
 <ul>
   <li>Prof. Dr. Daniel Roberto Cassar (https://github.com/drcassar)</li>
   <li>Prof. Dr. James Moraes de Almeida (https://github.com/jamesmalmeida)</li>
