@@ -21,7 +21,7 @@ def plotar_graficos(resultados):
         
         # Determina o tipo de transformação
         if P1 == P2:  # Isobárica
-            if V1 / T1 != V2 / T2:  # Verifica se é uma isobárica válida
+            if round(V1 / T1) != round(V2 / T2):  # Verifica se é uma isobárica válida
                 # Criar um "X" com preenchimento
                 theta = np.linspace(0, 2*np.pi, 100)
                 x1 = 0.5 + 0.3 * np.cos(theta + np.pi/4)  # Primeira perna do X
@@ -35,7 +35,7 @@ def plotar_graficos(resultados):
                 plt.plot([V1, V2], [P1, P2], '-', label='Isobárica', color = "deeppink")
                 plt.title(f'Transformação {i+1}: Isobárica')
         elif V1 == V2:  # Isocórica
-            if P1 / T1 != P2 / T2:  # Verifica se é uma isocórica válida
+            if round(P1 / T1) != round(P2 / T2):  # Verifica se é uma isocórica válida
                 # Criar um "X" com preenchimento
                 theta = np.linspace(0, 2*np.pi, 100)
                 x1 = 0.5 + 0.3 * np.cos(theta + np.pi/4)  # Primeira perna do X
@@ -49,7 +49,7 @@ def plotar_graficos(resultados):
                 plt.plot([V1, V2], [P1, P2], '-', label='Isocórica', color = "lightseagreen")
                 plt.title(f'Transformação {i+1}: Isocórica')
         elif T1 == T2:  # Isotérmica
-            if P1 * V1 != P2 * V2:  # Verifica se é uma isotérmica válida
+            if round(P1 * V1) != round(P2 * V2):  # Verifica se é uma isotérmica válida
                 # Criar um "X" com preenchimento
                 theta = np.linspace(0, 2*np.pi, 100)
                 x1 = 0.5 + 0.3 * np.cos(theta + np.pi/4)  # Primeira perna do X
